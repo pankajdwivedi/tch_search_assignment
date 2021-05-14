@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.tch.search.model.InputData;
 /**
@@ -15,6 +17,7 @@ import com.tch.search.model.InputData;
  * @author Pankaj
  *
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProcessorTest {
 
 	Processor processor;
@@ -34,7 +37,36 @@ public class ProcessorTest {
 		List<InputData> result = processor.search("10020");
 		assertTrue(result.size() > 0);
 	}
-
+	@Test
+	public void searchByZipCodeValid2() { 
+		List<InputData> result = processor.search("10021");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByZipCodeValid3() { 
+		List<InputData> result = processor.search("10018");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByZipCodeValid4() { 
+		List<InputData> result = processor.search("27105");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByZipCodeValid5() { 
+		List<InputData> result = processor.search("27107");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByZipCodeValid6() { 
+		List<InputData> result = processor.search("75201");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByZipCodeValid7() { 
+		List<InputData> result = processor.search("75202");
+		assertTrue(result.size() > 0);
+	}
 	@Test
 	public void searchByZipCodeInValid() {
 		List<InputData> result = processor.search("08820");
@@ -42,8 +74,18 @@ public class ProcessorTest {
 	}
 
 	@Test
-	public void searchByStateValid() {
+	public void searchByStateValidNY() {
 		List<InputData> result = processor.search("NY");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByStateValidNC() {
+		List<InputData> result = processor.search("NC");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByStateValidTX() {
+		List<InputData> result = processor.search("TX");
 		assertTrue(result.size() > 0);
 	}
 
@@ -54,12 +96,21 @@ public class ProcessorTest {
 	}
 
 	@Test
-	public void searchByCityValid() {
+	public void searchByCityValidNY() {
 		List<InputData> result = processor.search("New York");
 		assertTrue(result.size() > 0);
 	}
-
 	@Test
+	public void searchByCityValidSalem() {
+		List<InputData> result = processor.search("Winston-Salem");
+		assertTrue(result.size() > 0);
+	}
+	@Test
+	public void searchByCityValidDallas() {
+		List<InputData> result = processor.search("Dallas");
+		assertTrue(result.size() > 0);
+	}
+	@Test()
 	public void searchByCityInValid() {
 		List<InputData> result = processor.search("Chicago");
 		assertTrue(result.size() == 0);
