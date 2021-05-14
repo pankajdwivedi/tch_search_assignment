@@ -6,3 +6,5 @@ Main class to execute the program -> SearchClientProgram
 Junit to test all scenarios -> ProcessorTest
 
 Class to process the search -> Processor
+
+Class which maintains search scenarios : Utility
